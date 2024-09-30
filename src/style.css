@@ -1,0 +1,369 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    /* font-family: Arial, sans-serif; */
+    font-family: "Bebas Neue", sans-serif;
+}
+
+#app {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
+
+#close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 999;
+    width: 30px;
+    height: 30px;
+}
+
+#close-button img {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    opacity: 0.5;
+    transition: opacity 0.5s ease-out;
+    z-index: 2;
+}
+
+#progress-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-sizing: border-box;
+    border: 2px solid blue;
+    z-index: 1;
+    opacity: 0.5;
+    animation: shrink-border 10s linear forwards;
+    transition: border 0.5s ease-out;
+}
+
+#close-button.active img {
+    opacity: 1;
+}
+
+.image-container {
+    position: absolute;
+    width: 80%;
+    height: 70%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+    opacity: 1;
+    border-radius: 12px;
+}
+
+.image-container.hidden {
+    opacity: 0;
+}
+#icons {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none; 
+}
+  
+.icon {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+    position: absolute;
+}
+
+.cta img{
+    width: 10vh;
+    display: grid;
+    margin: auto;
+}
+
+.cta h2{
+    margin: 4vh 0 1vh;
+}
+  
+#icon-heart, #icon-x {
+    position: absolute;
+    top: 50%; 
+    transform: translateY(-50%); 
+    width: 80px;
+    height: 80px;
+    opacity: 0; 
+    transition: opacity 0.5s ease; 
+    z-index: 10; 
+}
+
+#icon-heart {
+    left: 10vh; 
+}
+
+#icon-x {
+    right: 10vh;
+}
+
+
+/* Header logo */
+header {
+    position: absolute;
+    top: -1%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 999; 
+    transition: top .5s ease-out;
+}
+
+header img {
+    max-width: 20vh; 
+    height: auto; 
+    display: block; 
+    margin: 5vh auto; 
+    transition: max-width .8s ease-out;
+    
+}
+
+/* test confetti  */
+.cta-container {
+    position: absolute;
+    z-index: 999;
+    opacity: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1.5px;
+    border-radius: 12px;
+    background: transparent; 
+    animation: gradient-border 20s ease-in-out infinite;
+    text-align: center;
+    --s: 10px; /* the spread-radius */
+    transform-style: preserve-3d;
+    animation: gradient-border 20s ease-in-out infinite;
+}
+
+.cta-container:before {
+    content: "";
+    position: absolute;
+    inset: 0px;
+    transform: translate3d(0px, 0px, -1px);
+    background: linear-gradient(135deg, #ff6a00, #ff007a, #007bff); 
+    filter: blur(30px);
+    border-radius: inherit;
+    animation: pulse 5s infinite; 
+}
+
+.cta {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+/* Wrapper pour les confettis */
+.confetti-wrapper {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+
+/* Bottom icons */
+#bottom-icons {
+    position: absolute;
+    bottom: 17.5vh;
+    width: 66%;
+    display: flex;
+    justify-content: space-between; 
+    padding: 0 20px;
+    opacity: 1;
+    transition: opacity .5s ease-out;
+}
+
+#bottom-heart, #bottom-x{
+    position: relative;
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+/* Mockup iphone */
+#show-mobile-app {
+    position: fixed; 
+    width: 250px; 
+    height: 550px;
+    opacity: 0;
+    display: none;
+    transition: all 2s ease-out;
+    top: 55%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+}
+
+.mockup {
+    width: 100%; 
+    height: auto;
+}
+
+.logo {
+    position: absolute;
+    width: 70%; 
+    top: 50%;  
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    height: auto;
+}
+
+#stores_icons{
+    display: none; 
+    justify-content: space-between; 
+    opacity: 0;
+    display: none;
+    position: absolute;
+    bottom: 16%;
+    transition: opacity .5s ease-out;
+}
+
+#stores_icons div{
+    display: flex;
+    justify-content: space-between; 
+    margin-top: 3vh;
+}
+
+#stores_icons p{
+    margin: 2vh 0;
+    text-align: center;
+}
+
+#stores_icons svg{
+    opacity: 1;
+    margin: 0 5vh;
+    position: relative;
+    color: #333333!important;
+}
+
+
+@keyframes pulse {
+    0%, 100% {
+        inset: -2px; 
+        transform: translate3d(0px, 0px, -1px); 
+    }
+    50% {
+        inset: 8px; 
+        transform: translate3d(3px, 7px, -1px); 
+    }
+}
+
+@keyframes gradient-border {
+    0% {
+        background: linear-gradient(135deg, #ff6a00, #ff007a, #007bff);
+        background-position: 0% 50%;
+    }
+    25% {
+        background: linear-gradient(145deg, #ff720d, #fe0d81, #0c81fd);
+        background-position: 50% 50%;
+    }
+    50% {
+        background: linear-gradient(155deg, #fc7312, #fb1684, #1686fe);
+        background-position: 100% 50%;
+    }
+    75% {
+        background: linear-gradient(165deg, #fc6f0b, #ff0c82, #0d81fe);
+        background-position: 50% 50%;
+    }
+    100% {
+        background: linear-gradient(135deg, #ff6a00, #ff007a, #007bff);
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes shrink-border {
+    0% {
+      border-width: 4px;
+    }
+    100% {
+      border-width: 0;
+    }
+}
+
+/* Landscape */
+@media only screen and (min-device-width: 375px) and (max-device-width: 428px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape) {
+    #app{
+        height: 80vh;
+    }
+
+    #show-mobile-app, .cta-container{
+        left: 25%; 
+    }
+
+    #stores_icons{
+        right: 22vh;
+        bottom: 20%;
+    }
+
+    header{
+        top: 25%;
+        right: 30vh;
+        left: inherit;
+        /* right: -80%; */
+    }
+
+    header img {
+        max-width: 60vh; 
+        height: auto; 
+        display: block; 
+    
+    }
+
+    .image-container {
+        position: absolute;
+        width: 30%;
+        height: 70%;
+        left: 10%;
+    }
+
+    #bottom-icons{
+        width: 25%;
+        left: 10%;
+        bottom: 14.5vh;
+    }
+
+    #icon-heart {
+        left: -30vh; 
+    }
+    
+    #icon-x {
+        left: -90vh;
+    }
+
+}
+
+/* Portrait */
+@media only screen and (min-device-width: 375px) and (max-device-width: 428px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait) {
+    header{
+        top: 0%;
+    }
+
+    .image-container{
+        top: 16%;
+    }
+}
